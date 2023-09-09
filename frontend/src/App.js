@@ -6,7 +6,7 @@ import StudentComponent from './Student';
 function App() {
   return (
     <div className="App">
-      <h1>hello</h1>
+      <h1>Student Management</h1>
      <BrowserRouter>
         <Routes>
         <Route path="/" element={<StudentComponent />} />

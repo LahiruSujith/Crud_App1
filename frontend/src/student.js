@@ -4,9 +4,10 @@ import axios from 'axios';
 function Student() {
 
   const [student, setStudent] = useState([])
+
   useEffect(()=>{
     axios.get("http://localhost:8081/")
-    .then(res => console.log(res))
+    .then(res => setStudent(res.data))
     .catch(err => console.log(err));
   },[])
 
@@ -19,15 +20,22 @@ function Student() {
           <tr>
             <th>Name</th>
             <th>City</th>
+            <th>action</th>
           </tr>
         </thead>
         <tbody>
-        {student.map((data, id) => (
-          <tr key={id}>
-            <td>{data.Name}</td>
-            <td>{data.City}</td>
-          </tr>
-        ))}
+        {
+          student.map((data, id) => (
+            <tr key={id}>
+              <td>{data.name}</td>
+              <td>{data.city}</td>
+              <td>
+                <button btn btn-success>Update</button>
+                <button btn btn-danger>Delete</button>
+              </td>
+            </tr>
+          ))
+        }
       </tbody>
       </table>
     </div>

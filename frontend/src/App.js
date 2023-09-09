@@ -1,14 +1,15 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import student from './student';
+import StudentComponent from './Student';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <h1>hello</h1>
+     <BrowserRouter>
         <Routes>
-          <Route path='/' element={<student />}></Route>
+        <Route path="/" element={<StudentComponent />} />
         </Routes>
       </BrowserRouter>
     </div>

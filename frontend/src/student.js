@@ -1,11 +1,11 @@
 import React from 'react'
 
-function student() {
+function Student() {
   return (
     <div>
-      
+      <h1>Student</h1>
     </div>
   )
 }
 
-export default student
+export default Student

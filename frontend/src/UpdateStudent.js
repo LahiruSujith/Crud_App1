@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-function CreateStudent() {
+function UpdateStudent() {
     const [Name, setName] = useState('');
     const [City, setCity] = useState('');
+    const {id} = useParams();
     const navigate = useNavigate();
 
     function handleSubmit(event) {
@@ -13,7 +15,7 @@ function CreateStudent() {
         console.log('Name:', Name);
         console.log('City:', City);
     
-        axios.post('http://localhost:8081/Create', { name: Name, city: City })
+        axios.put('http://localhost:8081/update/' + id, { name: Name, city: City }, { headers: { 'Content-Type': 'application/json' } })
             .then(res => {
                 console.log('Response:', res.data);
                 navigate('/');
@@ -26,7 +28,7 @@ function CreateStudent() {
         <div className="container vh-100 bg-secondary d-flex justify-content-center align-items-center">
             <div className="w-50 bg-light p-3 rounded">
                 <form onSubmit={ handleSubmit }>
-                    <h2>Add Student</h2>
+                    <h2>Update Student</h2>
                     <div className='mb-2'>
                         <label htmlFor="name">Name</label>
                         <input
@@ -49,11 +51,11 @@ function CreateStudent() {
                             onChange={e => setCity(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-success">Submit</button>
+                    <button type="submit" className="btn btn-success">Update</button>
                 </form>
             </div>
         </div>
     );
 }
 
-export default CreateStudent;
+export default UpdateStudent;

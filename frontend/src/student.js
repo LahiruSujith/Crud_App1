@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Student() {
 
@@ -14,7 +15,7 @@ function Student() {
   return (
     <div class="container vh-100 bg-secondary d-flex justify-content-center align-items-center">
     <div class="w-75 bg-light p-4 rounded">
-      <button class="btn btn-primary">Add +</button>
+      <Link to='./create' class="btn btn-primary">Add +</Link>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -30,8 +31,8 @@ function Student() {
               <td>{data.name}</td>
               <td>{data.city}</td>
               <td>
-                <button btn btn-success>Update</button>
-                <button btn btn-danger>Delete</button>
+                <button class='btn btn-success'>Update</button>
+                <button class='btn btn-danger m-2'>Delete</button>
               </td>
             </tr>
           ))
